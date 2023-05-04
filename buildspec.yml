@@ -2,9 +2,9 @@ version: 0.2
 
 env:
   shell: bash
-  secrets-manager:
-    DOCKERHUB_USERNAME: "arn:aws:secretsmanager:ap-southeast-2:591139941474:secret:docker_credentials-IBiPKo:dockerhub_username"
-    DOCKERHUB_PASSWORD: "arn:aws:secretsmanager:ap-southeast-2:591139941474:secret:docker_credentials-IBiPKo:dockerhub_password"
+#   secrets-manager:
+#     DOCKERHUB_USERNAME: "arn:aws:secretsmanager:ap-southeast-2:591139941474:secret:docker_credentials-IBiPKo:dockerhub_username"
+#     DOCKERHUB_PASSWORD: "arn:aws:secretsmanager:ap-southeast-2:591139941474:secret:docker_credentials-IBiPKo:dockerhub_password"
 
 phases:
   install:
@@ -20,11 +20,11 @@ phases:
       - cd m3project/
       - ./mvnw test
       - ./mvnw clean package
-      - echo "Building the Docker image..."
-      - docker build -t afawafa/mod4-project-docker:latest .
-      - docker tag afawafa/mod4-project-docker:latest afawafa/mod4-project-docker:latest
-      - echo "Pushing Docker image to registry..."
-      - docker push afawafa/mod4-project-docker:latest
+#       - echo "Building the Docker image..."
+#       - docker build -t afawafa/mod4-project-docker:latest .
+#       - docker tag afawafa/mod4-project-docker:latest afawafa/mod4-project-docker:latest
+#       - echo "Pushing Docker image to registry..."
+#       - docker push afawafa/mod4-project-docker:latest
   post_build:
     commands:
       - echo "Project deployed."
